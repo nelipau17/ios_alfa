@@ -14,13 +14,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-      // guard = reverse if
-    /*  if (windowScene = (scene as? UIWindowScene)) == nil { return }*/
         let window = UIWindow(windowScene: windowScene)
-        let viewConroller = ViewController()
-        window.rootViewController = ViewController() // Your initial view controller.
+        let factory = BeerTableViewControllerFactory()
+        let viewController = factory.build()
+        window.rootViewController = viewController
         window.makeKeyAndVisible()
         self.window = window
     }
 }
-
